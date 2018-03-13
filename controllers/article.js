@@ -4,9 +4,9 @@ angular.module('article')
       template: `
       <div class="container bg-info">
         <div class="page-header well">
-        <h3 class="text-primary" ng-bind-html='$ctrl.articles.title.rendered'></h3>
-        <p class="text-muted" ng-bind-html='$ctrl.articles.excerpt.rendered'></p>
-        <div ng-bind-html='$ctrl.articles.content.rendered'></div>        
+        <h3 class="text-primary" ng-bind-html='$ctrl.article.title.rendered'></h3>
+        <p class="text-muted" ng-bind-html='$ctrl.article.excerpt.rendered'></p>
+        <div ng-bind-html='$ctrl.article.content.rendered'></div>        
         </div>
       </div>
       `
@@ -15,16 +15,12 @@ angular.module('article')
 function articleData($routeParams, dataService) {
   let ctrl = this;
 
-  ctrl.articles = [];
+  ctrl.article = {};
   ctrl.id = $routeParams.id;
-
-  ctrl.$onInit = function() {
-    console.log(ctrl.art);
-  }
   
   dataService.getId(ctrl.id)
    .then(response => {
-     ctrl.articles = response.data;
+     ctrl.article = response.data;
    })
    .catch((err) => {
      console.log(err);
