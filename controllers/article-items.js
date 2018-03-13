@@ -3,10 +3,9 @@ angular.module('article')
       controller: articleData,
       template: `
       <div class="container bg-info">
-        <div class="page-header well" ng-repeat="article in $ctrl.articles">
+        <div class="page-header well" ng-repeat="article in $ctrl.articles" art="article">
         <a href="#!/{{article.id}}" class="text-primary" role="button" ng-bind-html='article.title.rendered'></a>
-        <p class="text-muted" ng-show="!article.sticky" ng-bind-html='article.excerpt.rendered'></p>
-        <div ng-show="article.sticky" ng-bind-html='article.content.rendered'></div>
+        <p class="text-muted" ng-bind-html='article.excerpt.rendered'></p>
         </div>
       </div>
       `

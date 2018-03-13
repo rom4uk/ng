@@ -17,6 +17,10 @@ function articleData($routeParams, dataService) {
 
   ctrl.articles = [];
   ctrl.id = $routeParams.id;
+
+  ctrl.$onInit = function() {
+    console.log(ctrl.art);
+  }
   
   dataService.getId(ctrl.id)
    .then(response => {

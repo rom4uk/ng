@@ -9,9 +9,6 @@ angular.module('article')
         .when('/:id', {
           template: '<article-id></article-id>'
         })
-        .when('/:title', {
-          template: '<article-title></article-title>'
-        })
         .otherwise({
           template: '<h1>404 no such page</h1>'
         })
